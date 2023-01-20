@@ -31,10 +31,11 @@ while True:
         window.title("加藤純一さんはオンラインです")
         canvas = tk.Canvas(width=510, height=200, background="#eee")
         canvas.place(x=-5, y=50)
-        text = tk.Label(canvas, text="配信を見に行く")
+        text = tk.Label(canvas, text="加藤純一さんの配信を見に行く")
         text.place(x=150, y=90, anchor=tk.NW)
         text.bind("<Button-1>", lambda e:jump_to_link("https://www.twitch.tv/kato_junichi0817"))
         driver1.quit()
         window.mainloop()
-
-    print('オフラインです')
+    else:
+        print('加藤純一さんはオフラインです')
+    
