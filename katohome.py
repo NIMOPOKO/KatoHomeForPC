@@ -1,10 +1,8 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome import service as fs
 import tkinter as tk
-import tkinter.messagebox as messagebox
 import webbrowser
 def jump_to_link(url):
     webbrowser.open_new(url)
