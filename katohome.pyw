@@ -40,7 +40,6 @@ while True:
         text.bind("<Button-1>", lambda e:jump_to_link("https://www.twitch.tv/kato_junichi0817"))
         driver1.quit()
         window.mainloop()
-
     del element
     del elem
     del window
