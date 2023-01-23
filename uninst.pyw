@@ -5,7 +5,7 @@ def runas():
     windll.shell32.ShellExecuteW(
         None,
         "runas",
-        ".\\bin\\KatoHomeForPCInst.exe",
+        ".\\bin\\KatoHomeForPCUnInst.exe",
         None,
         None,
         0
