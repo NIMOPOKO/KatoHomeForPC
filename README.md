@@ -5,6 +5,7 @@ setup.pyはexe化出来なかったので自分でビルドしてください。
 # インストール
 ```
 pip install  -r requirements.txt
+python setup.py
 ```
 # ビルド
 ```
