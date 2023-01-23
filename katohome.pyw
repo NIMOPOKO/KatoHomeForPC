@@ -2,8 +2,11 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome import service as fs
+from selenium.webdriver.chrome.service import Service
+from subprocess import CREATE_NO_WINDOW
 import tkinter as tk
 import webbrowser
+import gc
 
 def jump_to_link(url):
     webbrowser.open_new(url)
@@ -14,7 +17,7 @@ ChromeOptions.add_argument('--headless')
 
 CHROMEDRIVER = "..\driver\chromedriver"
 chrome_service = fs.Service(executable_path=CHROMEDRIVER)
-
+chrome_service.creation_flags = CREATE_NO_WINDOW
 driver1 = webdriver.Chrome(service=chrome_service,options=ChromeOptions)
 str = "https://www.twitch.tv/kato_junichi0817"
 driver1.get(str)
@@ -37,3 +40,9 @@ while True:
         text.bind("<Button-1>", lambda e:jump_to_link("https://www.twitch.tv/kato_junichi0817"))
         driver1.quit()
         window.mainloop()
+
+    del element
+    del elem
+    del window
+    gc.collect()
+    
