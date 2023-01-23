@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome import service as fs
 import tkinter as tk
 import webbrowser
+
 def jump_to_link(url):
     webbrowser.open_new(url)
 
@@ -36,6 +37,3 @@ while True:
         text.bind("<Button-1>", lambda e:jump_to_link("https://www.twitch.tv/kato_junichi0817"))
         driver1.quit()
         window.mainloop()
-    else:
-        print('加藤純一さんはオフラインです')
-    
