@@ -5,9 +5,14 @@ from selenium.webdriver.chrome import service as fs
 from subprocess import CREATE_NO_WINDOW
 import tkinter as tk
 import webbrowser
+import subprocess
 
 def jump_to_link(url):
     webbrowser.open_new(url)
+
+def exec_ping():
+    p = subprocess.run(["ping", "https://www.google.co.jp/", "-t", "1"], capture_output=True)
+    return p.returncode == 0
 
 ChromeOptions = webdriver.ChromeOptions()
 ChromeOptions.add_experimental_option('excludeSwitches', ['enable-logging'])
@@ -23,12 +28,14 @@ window = tk.Tk()
 window.geometry("500x300")
 
 while flag == 0:
-    try:
+    if exec_ping():
+        print("ネットあり")
         driver1.get(str)
-    except:
-        time.sleep(5)
-    else:
+        time.sleep(3)
         flag = 1
+    else:
+        time.sleep(3)
+        print("ネットなし")
 
 try:
     element = driver1.find_element(By.XPATH,'//*[@id="root"]/div/div[2]/div/main/div[1]/div[3]/div/div/div[1]/div[1]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div[1]/div/div[1]/div/p')
@@ -37,6 +44,7 @@ except:
     element = driver1.find_element(By.XPATH,'//*[@id="live-channel-stream-information"]/div/div/div/div/div[1]/div/div/div/a/div[2]/div/div/div')
     elem = element.text
 
+time.sleep(3)
 while True:
     try:
         element = driver1.find_element(By.XPATH,'//*[@id="root"]/div/div[2]/div/main/div[1]/div[3]/div/div/div[1]/div[1]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div[1]/div/div[1]/div/p')
